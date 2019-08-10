@@ -1,94 +1,57 @@
-# BAMazon
+# Amazon Like Store Front 
 
-Created during Week 12 of Rutgers Coding Bootcamp. The goal was to create an Amazon-like store front using Node.js and MySQL.
+## Bamazon built with Node.js & MySQL
 
-## Getting Started
+Description: Command Line Interface APP that take in orders from customers and deplete stock from the store's inventory.
 
-- Clone repo.
-- Run command in Terminal or Gitbash 'npm install'
-- Run command depending which mode you would like to be on:
-    * Customer - 'npm run customer'
-    * Manager - 'npm run manager'
-    * Exective - 'npm run exective'
-- Run 'ctrl + c' to exit each mode
+- Data Persist in MySQL Database called `bamazon`.
 
-### What Each JavaScript Does
+- Table inside of that database called `products`.
 
-1. `BamazonCustomer.js`
+- Products table columns are:
 
-    * Prints the products in the store.
+   * item_id (unique id for each product)
 
-    * Prompts customer which product they would like to purchase by ID number.
+   * product_name (Name of product)
 
-    * Asks for the quantity.
+   * department_name
 
-      * If there is a sufficient amount of the product in stock, it will return the total for that purchase.
-      * However, if there is not enough of the product in stock, it will tell the user that there isn't enough of the product.
-      * If the purchase goes through, it updates the stock quantity to reflect the purchase.
-      * It will also update the product sales in the department table.
+   * price (cost to customer)
 
------------------------
+   * stock_quantity (how much of the product is available in stores)
 
-2. `BamazonManager.js`
+- Database includes 10 different products. 
 
-    * Starts with a menu:
-        * View Products for Sale
-        * View Low Inventory
-        * Add to Inventory
-        * Add New Product
-        * End Session
+- Node application called `bamazonCustomer.js`. Running this application will first display all of the items available for sale. 
 
-    * If the manager selects `View Products for Sale`, it lists all of the products in the store including all of their details.
+- The app will prompt users with two messages.
 
-    * If the manager selects `View Low Inventory`, it'll list all the products with less than five items in its StockQuantity column.
+   * The first question ask user the ID of the product they would like to buy.
+   * The second question ask how many units of the product they would like to buy.
 
-    * If the manager selects `Add to Inventory`, it allows the manager to select a product and add inventory.
+- Once the customer has placed the order, the application will check if the store has enough of the product to meet the customer's request.
 
-    * If the manager selects `Add New Product`, it allows the manager to add a new product to the store.
+- If not, the app logs a phrase like `Insufficient quantity!`, and then prevent the order from going through.
 
-    * If the manager selects `End Session`, it ends the session and doesn't go back to the menu.
+- If the store does have enough of the product, the app fulfills the customer's order.
+- The mySQL database will update and reflect the remaining quantity.
+- Once the update goes through, the app shows the customer the total cost of their purchase.
 
------------------------
+## Getting Started:
 
-3. `BamazonExecutive.js`
+Run npm install
 
-    * Starts with a menu:
-        * View Product Sales by Department
-        * Create New Department
-        * End Session
+## Screenshots
 
-    * If the manager selects `View Product Sales by Department`, it lists the Department Sales and calculates the total sales from the overhead cost and product sales.
+Type in the product id
 
-    * If the manager selects `Create New Department`, it allows the manager to create a new department and input current overhead costs and product sales. If there are none, by default it will set at 0.
+![Results Screenshot](question1.JPG)
 
-    * If the manager selects `End Session`, it ends the session and doesn't go back to the menu.
+How many of that product do you want to buy
+![Results Screenshot](question2.JPG)
 
-## Demo Videos
+There're not enough inventory in stock
+![Results Screenshot](inventory.JPG)
 
-* BamazonCustomer.js (https://www.youtube.com/watch?v=p-QBusgtjKE)
-
-* BamazonManager.js (https://www.youtube.com/watch?v=Go828nrwaLY)
-
-* ExecutiveManager.js (https://www.youtube.com/watch?v=W6P2YpXGDq8)
-
-## Technologies used
-- Node.js
-- Inquire NPM Package (https://www.npmjs.com/package/inquirer)
-- MYSQL NPM Package (https://www.npmjs.com/package/mysql)
-
-### Prerequisites
-
-```
-- Node.js - Download the latest version of Node https://nodejs.org/en/
-- Create a MYSQL database called 'Bamazon', reference schema.sql
-```
-
-## Built With
-
-* Sublime Text - Text Editor
-* MySQLWorkbench
-* Terminal/Gitbash
-
-## Authors
-
-* **Stefanie Ding** - *JS/MySQL/Node.js* - [Stefanie Ding](https://github.com/StefanieDing)
+Purchase successful results
+![Results Screenshot](purchase.JPG)
