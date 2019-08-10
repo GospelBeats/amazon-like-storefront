@@ -47,10 +47,10 @@ Type in the product id
 
 ![Results Screenshot](question1.JPG)
 
-How many of that product do you want to buy
+How many of that product do you want to buy?
 ![Results Screenshot](question2.JPG)
 
-There're not enough inventory in stock
+Not enough inventory in stock
 ![Results Screenshot](inventory.JPG)
 
 Purchase successful results
